@@ -8,6 +8,6 @@
 
 **Fecha:** 11 de septiembre del 2026
 
-**Título de la práctica:** Calculo ambulatorio del índice pletismográfico quirúrgico (PPG)
+**Título de la práctica:** Cálculo ambulatorio del índice pletismográfico quirúrgico (PPG)
 
 # **Introducción**
