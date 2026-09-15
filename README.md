@@ -48,7 +48,7 @@ Se desarrolló un algoritmo de detección de picos en MATLAB, con las siguientes
 
 ## **Sujeto 1**
 
-
+<img width="449" height="268" alt="image" src= https://github.com/estmarianaleyton-cmyk/Laboratorio-2./blob/main/Frecuencia%20de%20corte.png>
 
 # **Análisis de resultados**
 
