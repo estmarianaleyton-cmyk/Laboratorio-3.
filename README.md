@@ -31,4 +31,11 @@ Dado que la señal IR entregada por el MAX30102 conserva una componente DC de gr
 
 ## **Algoritmo de detección de máximos y mínimos**
 
+Se desarrolló un algoritmo de detección de picos en MATLAB, con las siguientes características:
+
+- **Confirmación por ventana de tiempo (150 ms):** En este punto un valor solo es aceptado como latido válido si ningún valor posterior lo supera dentro de una venta de 150 ms. Tambien se cuenta con un periodo refractario de 500 ms, en donde se observa si el tiempo desde el ultimo pico confirmado es menor a 500 ms se descarta por completo. Esto permite descartar rebotes de ruido y la  muesca dicótica.
+
+- **Umbral de amplitud adaptativo:** en lugar de utilizar un umbral fijo, se calcula como una fracción del promedio de amplitud de los últimos cinco latidos confirmados, lo cual permite que el algoritmo se ajuste automáticamente a distintos sujestos sin recalibración manual.
+  
+- **Calibarción inicial automática (primeros 20 s de reposo):** Se determina la amplitud de pulso basal específica del sujeto, a partir de la cual se calculan los límites "PPGA_max" y "PPGA_min" usados en la normalización del SPI.
 
