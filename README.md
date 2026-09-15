@@ -39,3 +39,16 @@ Se desarrolló un algoritmo de detección de picos en MATLAB, con las siguientes
   
 - **Calibarción inicial automática (primeros 20 s de reposo):** Se determina la amplitud de pulso basal específica del sujeto, a partir de la cual se calculan los límites "PPGA_max" y "PPGA_min" usados en la normalización del SPI.
 
+
+
+
+
+
+# **Resultados**
+
+## **Sujeto 1**
+
+
+
+# **Análisis de resultados**
+
