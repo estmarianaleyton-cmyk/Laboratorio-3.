@@ -107,4 +107,8 @@ Por el contrario, cuando predomina una menor activación simpática, se favorece
 - El índice de perfusión (PI) es una medida de la fuerza relativa de la señal pulsátil respecto a la componente no pulsátil de la señal de un oxímetro. Se utiliza principalmente como indicador de la perfusión periférica por lo que no constituye por sí mismo un índice específico de nocicepción. 
 - Por lo tanto el SPI tiene como ventaja que combina información cardíaca y vascular relacionada con la respuesta autonómica el ANI se concentra principalmente en la regulación autonómica cardíaca mientras que el PI se enfoca en la perfusión periférica. Ninguno debe interpretarse como una medición directa y absoluta del dolor.
 
+# **Conclusiones**
 
+# **Referencias**
+- Bonhomme, V., Uutela, K., Hans, G., Maquoi, I., Born, J., Brichant, J., Lamy, M., & Hans, P. (2010). Comparison of the Surgical Pleth IndexTM with haemodynamic variables to assess nociception–anti-nociception balance during general anaesthesia. British Journal of Anaesthesia, 106(1), 101–111. https://doi.org/10.1093/bja/aeq291
+- Oh, S. K., Won, Y. J., & Lim, B. G. (2023). Surgical pleth index monitoring in perioperative pain management: usefulness and limitations. Korean Journal Of Anesthesiology, 77(1), 31-45. https://doi.org/10.4097/kja.23158
