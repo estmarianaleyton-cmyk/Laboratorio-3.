@@ -48,7 +48,28 @@ Se desarrolló un algoritmo de detección de picos en MATLAB, con las siguientes
 
 ## **Sujeto 1**
 
-<img width="449" height="268" alt="image" src= https://github.com/estmarianaleyton-cmyk/Laboratorio-2./blob/main/Frecuencia%20de%20corte.png>
+<img width="769" height="988" alt="image" src= https://github.com/estmarianaleyton-cmyk/Laboratorio-3./blob/main/Primer%20sujeto.Grafica.png>
+
+Los valores obtenidos fueron: 
+
+| Estado | SPI Promedio |
+| --- | --- |
+| Reposos inicial (0-40 s) | 47.8 |
+| Cold Pressor Test (40-80 s) | 48.1 |
+| Recuperación | 41.3 |
+
+## **Sujeto 2**
+
+<img width="769" height="988" alt="image" src= https://github.com/estmarianaleyton-cmyk/Laboratorio-3./blob/main/Primer%20sujeto.Grafica.png>
+
+Los valores obtenidos fueron: 
+
+| Estado | SPI Promedio |
+| --- | --- |
+| Reposos inicial (0-40 s) | 6.6 |
+| Cold Pressor Test (40-80 s) | 42.5 |
+| Recuperación | 32.8 |
+
 
 # **Análisis de resultados**
 
