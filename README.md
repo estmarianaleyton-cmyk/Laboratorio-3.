@@ -93,4 +93,18 @@ Esto nos demuestra que el sistema desarrollado puede reproducir cualitativamente
 
 - **Diferencias técnicas frente al monitor clínico validado:** Este sistema usa autocalibración simple por sujeto (primeros 20s), detección de picos por software sin validación cruzada con ECG, y un solo punto de medición óptica, mientras que el monitor comercial (GE Healthcare) incluye años de calibración clínica, rechazo de latidos ectópicos, y validación en miles de pacientes. Por tanto, los valores absolutos del sistema deben interpretarse con cautela; su mayor utilidad aquí es cualitativa, no como una medida clínicamente equivalente.
 
+# **Discusión**
+1. ¿Cómo se relacionan las variaciones del volumen sanguíneo periférico con el balance autonómico?
+
+Las variaciones del volumen sanguíneo periférico están relacionadas principalmente con la actividad del sistema nervioso autónomo, debido a que el sistema simpático regula el tono de los vasos sanguíneos periféricos. Ante un estímulo doloroso o estresante, aumenta la actividad simpática, produciendo vasoconstricción periférica. Como consecuencia, disminuye temporalmente el volumen de sangre en los tejidos periféricos y también puede disminuir la amplitud de la onda fotopletismográfica (PPGA).
+
+Por el contrario, cuando predomina una menor activación simpática, se favorece la vasodilatación y aumenta el flujo sanguíneo periférico, lo que puede producir una mayor amplitud de la señal PPG. Por esta razón, la fotopletismografía permite obtener información indirecta sobre los cambios en el tono vascular y en el balance autonómico.
+
+2. ¿Cómo se compara el SPI con otros índices comúnmente empleados en cirugía, como el ANI y el índice de perfusión?
+
+- El SPI combina dos variables: el intervalo entre latidos (HBI) y la amplitud de la onda pletismográfica (PPGA). Su valor se encuentra entre 0 y 100 y valores más altos representan una mayor respuesta de estrés/nocicepción. En la literatura se describe la forma general del cálculo como una combinación ponderada de las versiones normalizadas de HBI y PPGA.
+- El ANI en cambio se obtiene principalmente a partir del ECG y la variabilidad de la frecuencia cardíaca (HRV), especialmente de componentes asociados con la actividad parasimpática. Su escala también va de 0 a 100 pero la interpretación es inversa respecto al SPI: valores bajos de ANI se asocian con menor actividad parasimpática y mayor respuesta nociceptiva mientras que valores altos indican mayor predominio parasimpático.
+- El índice de perfusión (PI) es una medida de la fuerza relativa de la señal pulsátil respecto a la componente no pulsátil de la señal de un oxímetro. Se utiliza principalmente como indicador de la perfusión periférica por lo que no constituye por sí mismo un índice específico de nocicepción. 
+- Por lo tanto el SPI tiene como ventaja que combina información cardíaca y vascular relacionada con la respuesta autonómica el ANI se concentra principalmente en la regulación autonómica cardíaca mientras que el PI se enfoca en la perfusión periférica. Ninguno debe interpretarse como una medición directa y absoluta del dolor.
+
 
