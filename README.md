@@ -60,7 +60,7 @@ Los valores obtenidos fueron:
 
 ## **Sujeto 2**
 
-<img width="769" height="988" alt="image" src= https://github.com/estmarianaleyton-cmyk/Laboratorio-3./blob/main/Primer%20sujeto.Grafica.png>
+<img width="769" height="988" alt="image" src= https://github.com/estmarianaleyton-cmyk/Laboratorio-3./blob/main/Segundo%20sujeto.Grafica.png>
 
 Los valores obtenidos fueron: 
 
@@ -72,4 +72,25 @@ Los valores obtenidos fueron:
 
 
 # **Análisis de resultados**
+
+## **Comparación con los valores de SPI observados en cirugía**
+
+Dentro de la guia de laboratorio se señala que el rango objetivo para una analgesia intraoperatoria adecuada es SPI 20-50, y que deben evitarse incrementos mayores a 10 unidades. Al compararlo con los dos sujetos se pueden observar varias cosas.
+
+- **Sujeto 1:** las tres fases se mantuvieron dentro o muy cerca del rango clínico de "analgesia adecuada", pero sin diferencia real entre reposo y CPT, con una variación de apenas 0.3 unidades. Si este fuera un paciente real en cirugía, este resultado se interpretaría como "sin respuesta nociceptiva significativa al estímulo", lo cual sabemos que no es cierto, el sujeto sí recibió un estímulo doloroso real. Esto revela un falso negativo: la señal era demasiado ruidosa para que el cambio fisiológico real se reflejara en el promedio.
+  
+- **Sujeto 2:** la línea base en reposo está muy por debajo del rango clínico típico, lo cual es razonable, ya que ese rango de referencia se definió para pacientes anestesiados, mientras que el suejto estaba despierto y relajado, con un tono simpático basal distinto. Durante el CPT, el SPI promedio subió a 42.5, y los picos individuales alcanzaron valores de 85-100, un incremento momentáneo de más de 80 puntos sobre la línea base, muy por encima del umbral de alerta. Si se tratara de un paciente quirúrgico real, esto se interpretaría como un evento de estrés nociceptivo severo que ameritaría refuerzo inmediato de analgesia.
+
+Esto nos demuestra que el sistema desarrollado puede reproducir cualitativamente el comportamiento esperado del SPI clínico (Sujeto 2), pero es altamente dependiente de la calidad de la señal. Con contacto inestable, el sistema puede fallar en detectar un evento nociceptivo real (Sujeto 1), algo que un monitor clínico validado y con procesamiento de señal más robusto minimizaría.
+
+## **Alcance y limitaciones del sistema para cuantificar el dolor percibido**
+
+- **Sensibilidad extrema a artefactos de movimiento:** La diferencia más marcada entre ambos sujetos no fue la respuesta fisiológica en sí, sino la estabilidad del contacto del dedo con el sensor. En ambos sujetos, el pico más alto de todo el registro ocurrió justo en la transición de CPT a la recuperación (t≈80-88s), el momento en que el sujeto retira la mano del agua y se reacomoda, esto sugiere que ese pico refleja en buena parte un artefacto de movimiento, no una respuesta nociceptiva pura.
+
+- **Variabilidad interindividual del nivel basal:** El SPI de reposo del Sujeto 1 es más de 7 veces el del Sujeto 2. Esta diferencia probablemente combina tono simpático basal distinto, como el nivel de relajación y la ansiedad anticipatoria, con diferencias en la calidad de la señal evidenciando que un umbral fijo (como el 20-50 clínico) no es directamente trasladable a un sistema de bajo costo sin calibración clínica validada.
+
+- **El SPI mide balance autonómico, no dolor directamente:** Como toda la literatura de SPI reconoce, el índice se basa en la interacción simpático-parasimpática (frecuencia cardíaca y vasoconstricción periférica), que también responde a ansiedad, temperatura, o esfuerzo cognitivo — no exclusivamente a nocicepción. En un sujeto consciente, esos factores confusores son mucho más difíciles de aislar que en un paciente anestesiado e inmóvil, que es el contexto para el que el SPI fue diseñado originalmente.
+
+- **Diferencias técnicas frente al monitor clínico validado:** Este sistema usa autocalibración simple por sujeto (primeros 20s), detección de picos por software sin validación cruzada con ECG, y un solo punto de medición óptica, mientras que el monitor comercial (GE Healthcare) incluye años de calibración clínica, rechazo de latidos ectópicos, y validación en miles de pacientes. Por tanto, los valores absolutos del sistema deben interpretarse con cautela; su mayor utilidad aquí es cualitativa, no como una medida clínicamente equivalente.
+
 
