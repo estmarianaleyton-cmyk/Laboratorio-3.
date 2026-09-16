@@ -6,12 +6,15 @@
 
 **Estudiantes:** Dubrasca Martínez, Mariana Leyton, Joshara Valentina Palacios
 
-**Fecha:** 11 de septiembre del 2026
+**Fecha:** 15 de septiembre del 2026
 
 **Título de la práctica:** Cálculo ambulatorio del índice pletismográfico quirúrgico (PPG)
 
 # **Introducción**
 
+El índice pletismográfico quirúrgico (SPI) es una métrica empleada para proporcionar una aproximación sobre el balance existente entre nocicepción y analgesia durante procedimientos llevados a cabo bajo anestesia general. Este índice se calcula basándose en características de la onda fotopletismográfica (PPG), una señal que representa las variaciones en el volumen sanguíneo periférico provocadas por cada latido cardíaco. Como los estímulos nociceptivos pueden causar alteraciones sobre la actividad del sistema nervioso autónomo, y en particular sobre la respuesta vascular periférica, el análisis de esta señal nos proporcionará una información indirecta sobre esta respuesta. La escala del SPI varía entre 0 y 100 puntos, siendo valores más altos indicativos de mayor respuesta nociceptiva. 
+
+En esta práctica se propone el diseño e implementación de un sistema ambulatorio de adquisición y procesado de señal PPG mediante el sensor óptico MAX30-102 y una ESP32. Mediante MATLAB, se procesará la señal de forma digital para calcular el SPI mencionado anteriormente. A partir de la señal procesada se implementarán técnicas de filtrado y de búsqueda de máximos y mínimos necesarias para la extracción de las características del pulso. Por último, se estudiará el comportamiento del índice en condiciones de reposo, durante la realización del Cold Pressor Test (CPT) y durante la fase de recuperación para visualizar las variaciones fisiológicas ocasionadas por el estímulo analizar las capacidades y limitaciones del sistema implementado. De este modo se relacionan los conceptos de instrumentación biomédica y procesado de señales con una aplicación médica que permite monitorizar la respuesta nociceptiva. 
 
 # **Metodología**
 
@@ -39,10 +42,25 @@ Se desarrolló un algoritmo de detección de picos en MATLAB, con las siguientes
   
 - **Calibarción inicial automática (primeros 20 s de reposo):** Se determina la amplitud de pulso basal específica del sujeto, a partir de la cual se calculan los límites "PPGA_max" y "PPGA_min" usados en la normalización del SPI.
 
+## **Cálculo del índice pletismográfico quirúrgico (SPI)**
 
+Desde cada pulso detectado se calcularon dos variables descriptivas de la señal: el Intervalo entre pulsos cardíacos (Heartbeat interval o HBI) y la Amplitud de la onda pletismográfica (PPGA). El HBI fue calculado como la diferencia temporal entre dos picos sucesivos de la señal PPG. Por su parte, la PPGA fue calculada como la diferencia entre el máximo de cada pulso y el mínimo del mismo intervalo. El algoritmo impone un intervalo de HBI entre 500 y 1200 ms para excluir valores no representativos desde el punto de vista fisiológico y realiza un procesamiento de normalización sobre ambas variables. 
 
+El cálculo de la normalización se realizó acotando primero el HBI dentro del intervalo aceptado y llevándolo a una escala entre 0 y 100. De forma similar se normaliza la PPGA usando valores máximos y mínimos (PPGA_min y PPGA_max) que son automáticamente determinados durante los primeros 20 segundos del período de reposo de cada sujeto. De esta manera se tienen en cuenta las variaciones individuales en la amplitud de la señal debidas, por ejemplo, a la perfusión o a la presión con que el dedo hace contacto con el sensor. 
 
+El valor del SPI se calculó por latido utilizando la siguiente expresión implementada en MATLAB: 
 
+SPI = 100 − ( 0.7 ⋅ PPGAnorm + 0.3 ⋅ HBInorm )
+
+donde PPGAnorm corresponde a la amplitud de pulso normalizada y HBInorm al intervalo entre pulsos normalizado. El valor obtenido se mostró en tiempo real junto con el HBI, la frecuencia cardíaca y la PPGA, y posteriormente se almacenó para analizar su evolución durante las diferentes etapas del experimento.
+
+## **Aplicación del Cold Pressor Test (CPT)**
+
+Para la aplicación de un estímulo nociceptivo, se usó la maniobra Cold Pressor Test (CPT) tal como se describe en la guía de laboratorio. La captura duró 120 segundos, donde los 0-40 segundos fue considerado periodo de reposo inicial (Los primeros 20s de calibración), los 40-80 segundos fue cuando se aplicó CPT y los 80-120 segundos fue el periodo de recuperación. 
+
+Los primeros 40 segundos consistieron en que el voluntario se mantuvo en estado de reposo mientras se tomaba como referencia la señal PPG inicial o base. Una vez que el cronometro llegó a los 40 segundos el voluntario colocó su mano en el agua fria por 40 segundos. Cuando el cronometro marcó 80 segundos se mostró otro mensaje indicando levantar la mano y volver a las condiciones de base para tener el periodo de recuperación. El SPI se calculó durante cada latido para las tres etapas y luego se graficó utilizando tiempo como eje x para apreciar mejor los cambios ocasionados por el estímulo. 
+
+Una vez terminada la adquisición, los valores obtenidos del SPI fueron separados por condiciones automáticamente y se promedió el SPI de reposo inicial, el SPI durante CPT y el SPI del periodo de recuperación. Se utilizó un promedio movil de 5 latidos para obtener una curva mas "suave" permitiendo apreciar mejor la tendencia del índice sin estar afectados por el cambio brusco de un solo latido. 
 
 # **Resultados**
 
@@ -107,7 +125,9 @@ Por el contrario, cuando predomina una menor activación simpática, se favorece
 - El índice de perfusión (PI) es una medida de la fuerza relativa de la señal pulsátil respecto a la componente no pulsátil de la señal de un oxímetro. Se utiliza principalmente como indicador de la perfusión periférica por lo que no constituye por sí mismo un índice específico de nocicepción. 
 - Por lo tanto el SPI tiene como ventaja que combina información cardíaca y vascular relacionada con la respuesta autonómica el ANI se concentra principalmente en la regulación autonómica cardíaca mientras que el PI se enfoca en la perfusión periférica. Ninguno debe interpretarse como una medición directa y absoluta del dolor.
 
-# **Conclusiones**
+# **Conclusión**
+
+La practica permitió establecer un sistema ambulatorio para la adquisición de una señal fotopletismográfica utilizando el sensor MAX30102 y su posterior procesamiento en MATLAB para la estimación del índice pletismográfico quirúrgico (SPI). Los resultados mostraron que existe variación en el comportamiento del índice entre la condición basal, prueba del Cold Pressor Test y condición de recuperación. Las diferencias presentadas por los resultados de los sujetos analizados pudieron deberse a variaciones de la respuesta fisiológica de cada sujeto y la calidad de la señal captada, esto debido a que se presentó un aumento en el SPI durante el CPT en el Sujeto 2 y fue menor en el Sujeto 1, lo cual afectó la estimación del índice. Con estos resultados podemos asociar la variación en la señal PPG con la respuesta autonómica frente a un estímulo nociceptivo y además evidenciar la importancia del procesamiento digital para la obtención de indicadores fisiológicos a partir de una señal biomédica; no obstante, los artefactos producidos por movimiento, contacto con el sensor y otros fenómenos fisiológicos deberán ser eliminados o tomados en cuenta para una correcta interpretación. Para un siguiente paso se debería mejorar la robustez del sistema para luego realizar una validación frente a métodos clínicos para establecer si el sistema es capaz de medir o estimar la respuesta nociceptiva. 
 
 # **Referencias**
 - Bonhomme, V., Uutela, K., Hans, G., Maquoi, I., Born, J., Brichant, J., Lamy, M., & Hans, P. (2010). Comparison of the Surgical Pleth IndexTM with haemodynamic variables to assess nociception–anti-nociception balance during general anaesthesia. British Journal of Anaesthesia, 106(1), 101–111. https://doi.org/10.1093/bja/aeq291
